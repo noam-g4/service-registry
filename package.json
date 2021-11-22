@@ -21,7 +21,6 @@
   "homepage": "https://github.com/noam-g4/service-registry#readme",
   "dependencies": {
     "bunyan": "^1.8.15",
-    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "semver": "^7.3.5"
   }
