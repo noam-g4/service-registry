@@ -1,0 +1,28 @@
+{
+  "name": "service-registry",
+  "version": "1.0.0",
+  "description": "a service registry for managing microservices over HTTP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noam-g4/service-registry.git"
+  },
+  "keywords": [
+    "microservice"
+  ],
+  "author": "Noam Yadgar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noam-g4/service-registry/issues"
+  },
+  "homepage": "https://github.com/noam-g4/service-registry#readme",
+  "dependencies": {
+    "bunyan": "^1.8.15",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "semver": "^7.3.5"
+  }
+}
