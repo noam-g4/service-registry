@@ -4,7 +4,7 @@
   "description": "a service registry for managing microservices over HTTP",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/controllers/state.js"
   },
   "repository": {
     "type": "git",
