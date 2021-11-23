@@ -4,7 +4,8 @@
   "description": "a service registry for managing microservices over HTTP",
   "main": "index.js",
   "scripts": {
-    "start": "node src/controllers/state.js"
+    "start": "node ./src/service.js | bunyan -o short",
+    "dev": "nodemon ./src/service.js | bunyan -o short"
   },
   "repository": {
     "type": "git",
@@ -23,5 +24,8 @@
     "bunyan": "^1.8.15",
     "express": "^4.17.1",
     "semver": "^7.3.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }

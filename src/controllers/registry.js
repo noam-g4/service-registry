@@ -1,5 +1,6 @@
 const semver = require('semver')
 const { getState, setState } = require('./state')
+const { config } = require('../config')
 
 const key = ({ name, version, ip, port }) => `${name}-v${version}/${ip}:${port}`
 
@@ -25,8 +26,13 @@ module.exports.get = (name, version) => {
 module.exports.cleanup = () =>
   setState(state => {
     Object.keys(state).forEach(key => {
-      if (Math.floor(new Date() / 1000) - state[key].timestamp > 30)
+      if (
+        Math.floor(new Date() / 1000) - state[key].timestamp >
+        config.heartbeat
+      )
         delete state[key]
     })
     return state
   })
+
+module.exports.key = key
