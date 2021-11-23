@@ -30,5 +30,3 @@ module.exports.cleanup = () =>
     })
     return state
   })
-
-module.exports.list = () => Object.keys(getState())
