@@ -1,7 +1,7 @@
 const semver = require('semver')
 const { getState, setState } = require('./state')
 
-const key = ({ name, version, ip, port }) => `${name}v${version}//${ip}:${port}`
+const key = ({ name, version, ip, port }) => `${name}-v${version}/${ip}:${port}`
 
 module.exports.register = service =>
   setState(state => ({
@@ -21,3 +21,14 @@ module.exports.get = (name, version) => {
   )
   return candidates[Math.floor(Math.random() * candidates.length)]
 }
+
+module.exports.cleanup = () =>
+  setState(state => {
+    Object.keys(state).forEach(key => {
+      if (Math.floor(new Date() / 1000) - state[key].timestamp > 30)
+        delete state[key]
+    })
+    return state
+  })
+
+module.exports.list = () => Object.keys(getState())
