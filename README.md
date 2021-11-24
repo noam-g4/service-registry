@@ -16,7 +16,7 @@ sudo docker build -t service-registry .
 ```
 * **step 2** - run the container as a background process <br />
 ```bash
-sudo docker run -d -p [your host port]:3000 --name [name the container]
+sudo docker run -d -p [your host port]:3000 --name [name the container] service-regisrty
 ```
 conveniently, you can run <br />
 ```bash
