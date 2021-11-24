@@ -23,14 +23,16 @@ module.exports.get = (name, version) => {
   return candidates[Math.floor(Math.random() * candidates.length)]
 }
 
-module.exports.cleanup = () =>
+module.exports.cleanup = log =>
   setState(state => {
     Object.keys(state).forEach(key => {
       if (
         Math.floor(new Date() / 1000) - state[key].timestamp >
         config.heartbeat
-      )
+      ) {
         delete state[key]
+        log.info(`EXPIRED: service ${key}`)
+      }
     })
     return state
   })

@@ -1,12 +1,19 @@
 const { Router } = require('express')
 const { ServerError, log, parseService } = require('./config')
 const { getState } = require('./controllers/state')
-const { register, unregister, get, key } = require('./controllers/registry')
+const {
+  register,
+  unregister,
+  get,
+  key,
+  cleanup,
+} = require('./controllers/registry')
 
 const router = Router()
 
 router.put('/:name/:version/:port', (req, res, next) => {
   try {
+    cleanup(log)
     const service = parseService(req)
     const isNew = !getState()[key(service)]
     register(service)
@@ -32,6 +39,7 @@ router.delete('/:name/:version/:port', (req, res, next) => {
 
 router.get('/:name/:version', (req, res, next) => {
   try {
+    cleanup(log)
     const { name, version } = req.params
     const service = get(name, version)
     if (!service)
