@@ -28,7 +28,7 @@ module.exports.cleanup = log =>
     Object.keys(state).forEach(key => {
       if (
         Math.floor(new Date() / 1000) - state[key].timestamp >
-        config.heartbeat
+        config.expiration
       ) {
         delete state[key]
         log.info(`EXPIRED: service ${key}`)

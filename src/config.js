@@ -14,7 +14,7 @@ module.exports.log = bunyan.createLogger({ name: 'LOG' })
 
 module.exports.config = {
   port: 3000,
-  heartbeat: 30,
+  expiration: 30,
 }
 
 module.exports.ServerError = ServerError
