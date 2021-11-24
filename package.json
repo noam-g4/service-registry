@@ -4,7 +4,7 @@
   "description": "a service registry for managing microservices over HTTP",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/service.js | bunyan -o short",
+    "start": "node ./src/service.js | bunyan",
     "dev": "nodemon ./src/service.js | bunyan -o short"
   },
   "repository": {
